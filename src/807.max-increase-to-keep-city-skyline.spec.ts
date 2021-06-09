@@ -1,4 +1,4 @@
-import { maxIncreaseKeepingSkyline } from "./807.maxIncreaseToKeepCitySkyline";
+import { maxIncreaseKeepingSkyline } from "./807.max-increase-to-keep-city-skyline";
 
 describe("807.maxIncreaseToKeepCitySkyline", () => {
   it("example 1", () => {

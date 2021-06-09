@@ -1,4 +1,4 @@
-import { addTwoNumbers, ListNode } from "./2.addTwoNumbers";
+import { addTwoNumbers, ListNode } from "./2.add-two-numbers";
 
 describe("2.addTwoNumbers", () => {
   it("example 1", () => {

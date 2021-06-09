@@ -1,6 +1,6 @@
-import { lengthOfLongestSubstring } from "./3.longestSubstringWithoutRepeatingCharacters";
+import { lengthOfLongestSubstring } from "./3.longest-substring-without-repeating-characters";
 
-describe("2.addTwoNumbers", () => {
+describe("3.lengthOfLongestSubstring", () => {
   it("example 1", () => {
     expect(lengthOfLongestSubstring("abcabcbb")).toEqual(3);
   });

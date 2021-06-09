@@ -1,6 +1,6 @@
 import { intToRoman } from "./12.integer-to-roman";
 
-describe("12.integerToRoman", () => {
+describe("12.intToRoman", () => {
   it("example 1", () => {
     expect(intToRoman(3)).toEqual("III");
   });
