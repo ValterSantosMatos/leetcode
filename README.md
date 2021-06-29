@@ -1,3 +1,5 @@
-# leetcode
+### leetcode
 
-- [site](https://leetcode.comgit init)
+A compilation of some of the submissions I have done to leetcode.
+
+[leetcode](https://leetcode.com)
