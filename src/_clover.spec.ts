@@ -1,6 +1,6 @@
 import { fetch_bundle } from "./_clover";
 
-describe("_0.fetch_bundle", () => {
+describe("0.clover", () => {
   it("example 1", () => {
     expect(fetch_bundle(1)).toEqual({ bundle: [1, 2], not_available: [] });
   });
