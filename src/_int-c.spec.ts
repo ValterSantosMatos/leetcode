@@ -1,6 +1,6 @@
-import { fetch_bundle } from "./_clover";
+import { fetch_bundle } from "./_int-c";
 
-describe("0.clover", () => {
+describe("int-c", () => {
   it("example 1", () => {
     expect(fetch_bundle(1)).toEqual({ bundle: [1, 2], not_available: [] });
   });
