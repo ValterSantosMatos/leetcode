@@ -2,80 +2,80 @@
  Do not return anything, modify board in-place instead.
  */
 export function solveSudoku(board: string[][]): string[][] {
-  return [[]];
+  const solved = solveCell(board, 0, 0);
+  return solved as string[][];
 }
 
-// Cycle the board over and over again until we add one more number.
-// repeat until the board is filled
-//   let isFilled = false;
-//   while (isFilled === false) {
-//     isFilled = true;
+function solveCell(board: string[][], x: number, y: number): string[][] {
+  // checks if the current cell is solved
+  if (board[x][y] !== ".") {
+    if (board.every((r) => r.every((c) => c !== "."))) {
+      return board;
+    }
 
-//     for (let i = 0; i < board.length; i++) {
-//       const row = board[i];
-//       const startRowSquare = Math.floor(i / 3) * 3;
+    return solveCell(
+      board,
+      y < board.length ? x : x + 1,
+      y < board.length ? y + 1 : 0
+    );
+  }
 
-//       for (let j = 0; j < row.length; j++) {
-//         const col = row[j];
-//         const startColSquare = Math.floor(j / 3) * 3;
+  // tries to find the possible new numbers fo this cell
+  var possibleNumbers: string[] = [];
+  for (let n = 1; n < 10; n++) {
+    if (board[x].indexOf(n.toString()) !== -1) {
+      // already exists in a row
+      continue;
+    }
 
-//         // already filled in
-//         if (col !== ".") {
-//           continue;
-//         }
+    if (board.some((r) => r[y] === n.toString())) {
+      // already exists in a column
+      continue;
+    }
 
-//         isFilled = false;
+    if (isInSquare(n, Math.floor(x / 3) * 3, Math.floor(y / 3) * 3, board)) {
+      // check the box thing
+      continue;
+    }
 
-//         // check the 3 rules and try to find a single value
-//         for (let n = 1; n < 10; n++) {
-//           if (row.indexOf(n.toString()) !== -1) {
-//             // already exists in a row
-//             continue;
-//           }
+    possibleNumbers.push(n.toString());
+  }
 
-//           if (board.some((r) => r[j] === n.toString())) {
-//             // already exists in a column
-//             continue;
-//           }
+  // Cycle the solutions found
+  for (let i = 0; i < possibleNumbers.length; i++) {
+    board[x][y] = possibleNumbers[i];
+    const isBoardSolved = solveCell(
+      board,
+      y < board.length ? x : x + 1,
+      y < board.length ? y + 1 : 0
+    );
 
-//           if (isInSquare(n, startRowSquare, startColSquare, board)) {
-//             // check the box thing
-//             continue;
-//           }
+    if (
+      isBoardSolved &&
+      isBoardSolved.every((r) => r.every((c) => c !== "."))
+    ) {
+      return isBoardSolved;
+    }
+  }
 
-//           var old = board;
+  // couldn't find a solution for this cell, roll back
+  board[x][y] = ".";
+  return board;
+}
 
-//           possibleNumbers.push(n.toString());
-//         }
-//       }
-//     }
-//   }
+function isInSquare(
+  n: number,
+  startRow: number,
+  startCol: number,
+  board: string[][]
+): boolean {
+  for (let r = 0; r < 3; r++) {
+    for (let c = 0; c < 3; c++) {
+      if (board[startRow + r][startCol + c] === n.toString()) {
+        return true;
+      }
+    }
+  }
 
-//   return board;
-// }
-
-// function isInSquare(
-//   n: number,
-//   startRow: number,
-//   startCol: number,
-//   board: string[][]
-// ): boolean {
-
-// }
-
-// function isInSquare(
-//   n: number,
-//   startRow: number,
-//   startCol: number,
-//   board: string[][]
-// ): boolean {
-//   for (let r = 0; r < 3; r++) {
-//     for (let c = 0; c < 3; c++) {
-//       if (board[startRow + r][startCol + c] === n.toString()) {
-//         return true;
-//       }
-//     }
-//   }
-
-//   return false;
-// }
+  return false;
+}
