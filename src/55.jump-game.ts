@@ -1,3 +1,1 @@
-export function canJump(nums: number[]): boolean {
-
-};
+export function canJump(nums: number[]): boolean {}

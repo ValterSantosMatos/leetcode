@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "command": "npm run test 18",
+      "name": "Debug All",
+      "request": "launch",
+      "type": "node-terminal"
+    }
+  ]
+}
