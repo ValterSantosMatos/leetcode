@@ -38,7 +38,7 @@ export function numIslands(grid: string[][]): number {
           }
 
           islands.push(newIsland);
-          console.log(islands);
+          // console.log(islands);
         }
       }
     }
