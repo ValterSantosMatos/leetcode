@@ -5,7 +5,7 @@ export function numIslands(grid: string[][]): number {
     const row = grid[x];
     for (let y = 0; y < row.length; y++) {
       const element = row[y];
- 
+
       if (element === "1") {
         // Checks if one of the islands already has a neighbor
         // let existingIslandKey: string | null = null;
@@ -38,7 +38,7 @@ export function numIslands(grid: string[][]): number {
           }
 
           islands.push(newIsland);
-          console.log(islands);
+          // console.log(islands);
         }
       }
     }

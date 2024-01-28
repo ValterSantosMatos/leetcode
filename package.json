@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "bull": "tsc && node ./out/bull/bull.js",
+    "bull-test": "jest bull",
     "build": "tsc",
     "test": "jest"
   },
@@ -18,9 +20,15 @@
     "url": "https://github.com/bromix/typescript-jest-example/issues"
   },
   "homepage": "https://github.com/bromix/typescript-jest-example#readme",
+  "jest": {
+    "testMatch": [
+      "**/src/**/__tests__/**/*.ts?(x), **/?(*.)+(spec|test).ts?(x)"
+    ]
+  },
   "devDependencies": {
     "@types/jest": "26.0.20",
     "jest": "26.6.3",
+    "prettier": "2.8.7",
     "ts-jest": "26.4.4",
     "typescript": "4.1.3"
   }

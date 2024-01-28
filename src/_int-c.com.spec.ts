@@ -21,4 +21,3 @@ describe("_int-c.com", () => {
     expect(thisWordsHavePalindrome("abcde", "xxxxb")).toEqual(false);
   });
 });
-
